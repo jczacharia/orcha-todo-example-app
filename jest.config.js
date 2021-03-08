@@ -9,5 +9,6 @@ module.exports = {
     '<rootDir>/libs/client/shell',
     '<rootDir>/libs/shared/domain',
     '<rootDir>/libs/shared/util',
+    '<rootDir>/libs/client/shared/util',
   ],
 };

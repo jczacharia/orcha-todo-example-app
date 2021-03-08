@@ -8,7 +8,6 @@ import {
   ReadTodosDto,
   Todo,
   TodoQueryModel,
-  ToggleTodoDto,
   UpdateTodoDto,
 } from '@orcha-todo-example-app/shared/domain';
 import { IQuery } from '@orcha/common';
@@ -31,11 +30,6 @@ export class TodoOrchestration implements IServerOrchestration<ITodoOrchestratio
   @ServerOperation({ validateQuery: TodoQueryModel })
   async update(query: IQuery<Todo>, token: string, dto: UpdateTodoDto) {
     return this.todo.update(query, token, dto);
-  }
-
-  @ServerOperation({ validateQuery: TodoQueryModel })
-  async toggle(query: IQuery<Todo>, token: string, dto: ToggleTodoDto) {
-    return this.todo.toggle(query, token, dto);
   }
 
   @ServerOperation({ validateQuery: DeleteTodoQueryModel })

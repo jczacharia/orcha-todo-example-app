@@ -5,7 +5,7 @@ export interface Todo {
   id: string;
   content: string;
   done: boolean;
-  dateCreated: Date;
-  dateUpdated: Date;
+  dateCreated: Date | string;
+  dateUpdated: Date | string;
   user: IManyToOne<Todo, User>;
 }

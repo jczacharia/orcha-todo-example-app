@@ -25,6 +25,7 @@
     "client-shared-data-access": { "tags": [] },
     "client-shell": { "tags": [] },
     "shared-domain": { "tags": [] },
-    "shared-util": { "tags": [] }
+    "shared-util": { "tags": [] },
+    "client-shared-util": { "tags": [] }
   }
 }

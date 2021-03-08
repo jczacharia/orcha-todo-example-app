@@ -47,10 +47,7 @@
             "polyfills": "apps/todo-app/src/polyfills.ts",
             "tsConfig": "apps/todo-app/tsconfig.app.json",
             "aot": true,
-            "assets": [
-              "apps/todo-app/src/favicon.ico",
-              "apps/todo-app/src/assets"
-            ],
+            "assets": ["apps/todo-app/src/favicon.ico", "apps/todo-app/src/assets"],
             "styles": ["apps/todo-app/src/styles.scss"],
             "scripts": []
           },
@@ -105,10 +102,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/todo-app/src/**/*.ts",
-              "apps/todo-app/src/**/*.html"
-            ]
+            "lintFilePatterns": ["apps/todo-app/src/**/*.ts", "apps/todo-app/src/**/*.html"]
           }
         },
         "test": {
@@ -198,7 +192,7 @@
         }
       }
     },
-    "server-core-server": {
+    "server-core-services": {
       "root": "libs/server/core/services",
       "sourceRoot": "libs/server/core/services/src",
       "projectType": "library",
@@ -295,10 +289,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/client/shell/src/**/*.ts",
-              "libs/client/shell/src/**/*.html"
-            ]
+            "lintFilePatterns": ["libs/client/shell/src/**/*.ts", "libs/client/shell/src/**/*.html"]
           }
         },
         "test": {
@@ -348,6 +339,31 @@
           "outputs": ["coverage/libs/shared/util"],
           "options": {
             "jestConfig": "libs/shared/util/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "client-shared-util": {
+      "projectType": "library",
+      "root": "libs/client/shared/util",
+      "sourceRoot": "libs/client/shared/util/src",
+      "prefix": "orcha-todo-example-app",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/client/shared/util/src/**/*.ts",
+              "libs/client/shared/util/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/client/shared/util"],
+          "options": {
+            "jestConfig": "libs/client/shared/util/jest.config.js",
             "passWithNoTests": true
           }
         }

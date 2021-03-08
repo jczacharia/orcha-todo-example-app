@@ -4,7 +4,7 @@ import { Todo } from '../todo';
 export interface User {
   id: string;
   password: string;
-  dateCreated: Date;
-  dateLastLoggedIn?: Date;
+  dateCreated: Date | string;
+  dateLastLoggedIn?: Date | string;
   todos: IOneToMany<User, Todo>;
 }

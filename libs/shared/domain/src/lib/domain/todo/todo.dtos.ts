@@ -1,29 +1,26 @@
-import { IsString, IsUUID, IsBoolean } from 'class-validator';
+import { IsBoolean, IsOptional, IsString, IsUUID } from 'class-validator';
 
 export abstract class CreateTodoDto {
   @IsString()
   content!: string;
 
-  @IsUUID()
+  @IsString()
   userId!: string;
 }
 
 export abstract class ReadTodosDto {
-  @IsUUID()
+  @IsString()
   userId!: string;
 }
 
 export abstract class UpdateTodoDto {
+  @IsOptional()
   @IsString()
-  content!: string;
+  content?: string;
 
-  @IsUUID()
-  todoId!: string;
-}
-
-export abstract class ToggleTodoDto {
+  @IsOptional()
   @IsBoolean()
-  done!: boolean;
+  done?: boolean;
 
   @IsUUID()
   todoId!: string;

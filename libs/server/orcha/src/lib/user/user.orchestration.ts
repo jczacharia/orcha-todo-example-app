@@ -6,6 +6,8 @@ import {
   OrchaTodoExampleAppOrchestrations,
   SignUpDto,
   SignUpQueryModel,
+  User,
+  UserQueryModel,
 } from '@orcha-todo-example-app/shared/domain';
 import { IQuery } from '@orcha/common';
 import { IServerOrchestration, ServerOperation, ServerOrchestration } from '@orcha/nestjs';
@@ -22,5 +24,10 @@ export class UserOrchestration implements IServerOrchestration<IUserOrchestratio
   @ServerOperation({ validateQuery: SignUpQueryModel })
   async signUp(query: IQuery<{ token: string }>, _: string, { id, password }: SignUpDto) {
     return this.user.signUp(id, password, query);
+  }
+
+  @ServerOperation({ validateQuery: UserQueryModel })
+  async getProfile(query: IQuery<User>, token: string) {
+    return this.user.verifyUserToken(token, query);
   }
 }

@@ -5,7 +5,6 @@ import {
   DeleteTodoDto,
   ReadTodosDto,
   Todo,
-  ToggleTodoDto,
   UpdateTodoDto,
 } from '@orcha-todo-example-app/shared/domain';
 import { IQuery, parseOrchaQuery } from '@orcha/common';
@@ -54,18 +53,7 @@ export class TodoService {
       throw new HttpException('You cannot update a todo item for another user.', HttpStatus.UNAUTHORIZED);
     }
 
-    return this.todoRepo.update(dto.todoId, { content: dto.content }, query);
-  }
-
-  async toggle(query: IQuery<Todo>, token: string, dto: ToggleTodoDto) {
-    const user = await this.user.verifyUserToken(token);
-    const todo = await this.todoRepo.findOneOrFail(dto.todoId, { user: { id: true } });
-
-    if (user.id !== todo.user.id) {
-      throw new HttpException('You cannot toggle a todo item for another user.', HttpStatus.UNAUTHORIZED);
-    }
-
-    return this.todoRepo.update(dto.todoId, { done: dto.done }, query);
+    return this.todoRepo.update(dto.todoId, { content: dto.content, done: dto.done }, query);
   }
 
   async delete(query: IQuery<{ deletedId: string }>, token: string, dto: DeleteTodoDto) {
