@@ -23,25 +23,34 @@ This is an example repository highlighting the capabilities of the Orcha Client<
 
 1. Clone repository:
 
-```sh
-https://github.com/jczacharia/orcha-todo-example-app/blob/master/schematics.sh
-```
+   ```sh
+   https://github.com/jczacharia/orcha-todo-example-app
+   ```
 
-1. Have a PostgreSQL instance running on `localhost:5432` (Environment vars found here: `libs/shared/domain/src/lib/environments/environment.ts`)
+2. Install Dependencies:
+
+   ```sh
+   cd orcha-todo-example-app && npm install
+   ```
+
+3. Have a PostgreSQL instance running on `localhost:5432` (Environment vars found here: `libs/shared/domain/src/lib/environments/environment.ts`)
+
    - Username: `postgres`
    - Password: `1Qazxsw2`
    - DB Name: `orcha-todo-example-app`
-1. Open 2 terminals:
-1. In Terminal 1, run the client (Angular):
 
-```sh
-npx ng serve todo-app
-```
+4. Open 2 terminals:
 
-1. In Terminal 2 run the server (Nestjs):
+5. In Terminal 1, run the client (Angular):
 
-```sh
-npx ng serve api
-```
+   ```sh
+   npx ng serve todo-app
+   ```
 
-1. Visit: http://localhost:4200
+6. In Terminal 2 run the server (Nestjs):
+
+   ```sh
+   npx ng serve api
+   ```
+
+7. Visit: http://localhost:4200
